@@ -55,10 +55,11 @@ print("Enter country index (e.g <3> Ignore braces: ")
 #Save user input in country_index variable
 country_index= input()
 
-#convert country_index string to an to an integer
+#convert country_index string to an to an integer and save in variable x
 x=int(country_index)
 
 print(crayons.red('Enter one of: (Check for spelling): capital , independence_date, prior_ruling_country'))
+# Accept user selection and save user selection in variable y
 y=input()
 print(json_data[x][y])
 

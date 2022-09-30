@@ -44,7 +44,6 @@ countries = [
         'independence_date': 'Dec 24, 1951',
         'prior_ruling_country': 'Britain', },
 
-
     {'id': 5,
      'country': 'Sudan',
      'capital': 'Khartoum',
@@ -71,19 +70,22 @@ countries = [
   
 ]
 
-
-@app.route("/admin/")
+# Endpoint 1: this endpoint returns information about this API in plain text
+# This Endpont can be accessed by using typing <curl http://127.0.0.1:22424/> in the Terminal
+@app.route("/home")
 def home():
-    return '''<h1>Distant Reading Archive</h1>
-<p>A prototype API for discovering the continent of Africa!!!</p>'''
+    return '''Colonized Countires in Africa
+A prototype API for discovering the continent of Africa!!!'''
 
-
+# Endpoint 2: this endpoint returns a HTML with a user input(somethng typed by the user) using Jinja Logic  
+# This Endpont can be accessed by using <curl http://127.0.0.1:22424/<xxxxxx> in the Terminal
 @app.route("/<username>")
 def index(username):
     return render_template("info.html", name=username)
 
-
-@app.route("/")
+# Endpoint 3: this endpoint returns a a JSON
+# This Endpont can be accessed by using <curl http://127.0.0.1:22424/<xxxxxx> in the Terminal
+@app.route("/home/countries")
 def glossary():
     # returns Books in JSON format
     return jsonify(countries)
